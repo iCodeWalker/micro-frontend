@@ -8,7 +8,7 @@ module.exports = {
    * Loading webpack output file inside the browser
    */
   devServer: {
-    port: 8081,
+    port: 8080,
   },
   plugins: [
     /**
@@ -24,13 +24,12 @@ module.exports = {
     }),
     /**
      * ModuleFederationPlugin :
-     * Here we setup module federation to expose the files of products app (remote)
+     * Here we setup module federation to recieve the files from products app (remote) inside our container app
      */
     new ModuleFederationPlugin({
-      name: "products",
-      filename: "remoteEntry.js", // contains list of all the files that are available from this app + directions on how to load them
-      exposes: {
-        "./ProductsIndex": "./src/index",
+      name: "container",
+      remotes: {
+        products: "products@http://localhost:8081/remoteEntry.js",
       },
     }),
   ],
