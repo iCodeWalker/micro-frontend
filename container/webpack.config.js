@@ -2,10 +2,13 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
 module.exports = {
+  /**
+   * (to have dist folder with the bundled file (main.js))
+   */
   mode: "development",
   /**
-   * devServer:
-   * Loading webpack output file inside the browser
+   * devServer: This gonna take output from the webpack process and make it available in the browser.
+   * Loading webpack output file inside the browser.
    */
   devServer: {
     port: 8080,
