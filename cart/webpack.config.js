@@ -38,7 +38,12 @@ module.exports = {
       exposes: {
         "./CartIndex": "./src/index",
       },
-      shared: ["faker"],
+      //   shared: ["faker"],
+      shared: {
+        faker: {
+          singleton: true, // loading only one copy of the shared module
+        },
+      },
     }),
   ],
 };
