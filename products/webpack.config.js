@@ -36,14 +36,14 @@ module.exports = {
       name: "products",
       filename: "remoteEntry.js", // contains list of all the files that are available from this app + directions on how to load them
       exposes: {
-        "./ProductsIndex": "./src/index",
+        "./ProductsIndex": "./src/bootstrap",
       },
-      // shared: ["faker"],
-      shared: {
-        faker: {
-          singleton: true, // loading only one copy of the shared module
-        },
-      },
+      shared: ["faker"],
+      // shared: {
+      //   faker: {
+      //     singleton: true, // loading only one copy of the shared module
+      //   },
+      // },
     }),
   ],
 };
